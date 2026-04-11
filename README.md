@@ -2,7 +2,7 @@
 
 ---
 
-### I. System Description
+### System Description
 
 A three-phase voltage source converter (VSC) is connected to the grid through an LCL filter. The system parameters are:
 - $L_f, R_f$: inverter-side inductance and resistance  
@@ -12,19 +12,20 @@ A three-phase voltage source converter (VSC) is connected to the grid through an
 Control design focuses on:
 - $L_f, R_f$ for current loop  
 - $C_f$ for voltage loop
----
 
-### II. Assumptions
+
+
+#### Assumptions
 
 1. Balanced three-phase system  
 2. dq frame aligned with grid voltage  
 3. Inner loop bandwidth ≫ outer loop   
 
----
 
-### III. dq Model of the System (Before Decoupling)
 
-#### A. Inverter-Side Inductor Dynamics
+#### dq Model of the System (Before Decoupling)
+
+#### Inverter-Side Inductor Dynamics
 
 In dq frame, the inductor dynamics include cross-coupling terms:
 
@@ -43,9 +44,9 @@ where:
 - $v_d, v_q$: PCC voltages  
 - $\omega$: grid angular frequency
 
----
 
-#### B. Capacitor Dynamics
+
+#### Capacitor Dynamics
 
 $$
 C_f \frac{dv_d}{dt} = i_d - i_{gd} + \omega C_f v_q
@@ -55,9 +56,9 @@ $$
 C_f \frac{dv_q}{dt} = i_q - i_{gq} - \omega C_f v_d
 $$
 
----
 
-#### C. Grid-Side Inductor
+
+#### Grid-Side Inductor
 
 $$
 L_c \frac{di_{gd}}{dt} = v_d - v_{gd} - R_c i_{gd} + \omega L_c i_{gq}
@@ -67,9 +68,9 @@ $$
 L_c \frac{di_{gq}}{dt} = v_q - v_{gq} - R_c i_{gq} - \omega L_c i_{gd}
 $$
 
----
 
-### IV. Decoupling and Simplified Model
+
+#### Decoupling and Simplified Model
 
 The cross-coupling terms $\omega L_f i_q$ and $\omega L_f i_d$ are compensated in control.
 
@@ -93,9 +94,9 @@ $$
 G_i(s) = \frac{1}{L_f s + R_f}
 $$
 
----
 
-### V. Power Equations
+
+#### Power Equations
 
 $$
 P = \frac{3}{2}(v_d i_d + v_q i_q)
@@ -121,25 +122,25 @@ $$
 
 ---
 
-### VI. Current Loop Design
+### Current Loop Design
 
-#### A. Plant
+#### Plant
 
 $$
 G_i(s) = \frac{1}{L_f s + R_f}
 $$
 
----
 
-#### B. Controller
+
+#### Controller
 
 $$
 C_i(s) = K_{pc} + \frac{K_{ic}}{s}
 $$
 
----
 
-#### C. Gain Selection
+
+#### Gain Selection
 
 Cancel plant pole:
 
@@ -163,9 +164,9 @@ $$
 K_{ic} = R_f \omega_{ci}
 $$
 
----
 
-#### D. Closed-Loop
+
+#### Closed-Loop
 
 $$
 L_i(s) = \frac{\omega_{ci}}{s}
@@ -177,9 +178,9 @@ $$
 
 ---
 
-### VII. Voltage Loop Design
+### Voltage Loop Design
 
-#### A. Effective Plant
+#### Effective Plant
 
 $$
 C_f \frac{dv}{dt} = i
@@ -193,9 +194,9 @@ $$
 G_v(s) = \frac{\omega_{ci}}{(s + \omega_{ci})} \cdot \frac{1}{C_f s}
 $$
 
----
 
-#### B. Controller
+
+#### Controller
 
 $$
 C_v(s) = K_{pv} + \frac{K_{iv}}{s}
@@ -205,9 +206,9 @@ $$
 \omega_{cv} = \frac{K_{iv}}{K_{pv}}
 $$
 
----
 
-#### C. Phase Margin Condition
+
+#### Phase Margin Condition
 
 $$
 \angle L_v(j\omega) = \tan^{-1}\left(\frac{\omega}{\omega_{cv}}\right) - \tan^{-1}\left(\frac{\omega}{\omega_{ci}}\right)-180^\circ
@@ -219,9 +220,9 @@ $$
 pm =\tan^{-1}\left(\frac{\omega_{gc}}{\omega_{cv}}\right)-\tan^{-1}\left(\frac{\omega_{gc}}{\omega_{ci}}\right)
 $$
 
----
 
-#### D. Symmetric Design
+
+#### Symmetric Design
 
 $$
 \omega_{gc} = \sqrt{\omega_{cv} \cdot \omega_{ci}}
@@ -249,9 +250,9 @@ $$
 \boxed{\omega_{cv}=\omega_{ci}\frac{1 - \sin(pm)}{1 + \sin(pm)}}
 $$
 
----
 
-#### E. Gains
+
+#### Gains
 
 $$
 K_{pv} = C_f \omega_{gc}
@@ -263,7 +264,7 @@ $$
 
 ---
 
-### VIII. Numerical Example (pm = 50°)
+### Numerical Example (pm = 50°)
 
 Given:
 
@@ -279,9 +280,9 @@ $$
 C_f = 50\,\mu\text{F}
 $$
 
----
 
-#### A. Current Loop
+
+#### Current Loop
 
 $$
 \omega_{ci} = \frac{2\pi \cdot 10000}{4} = 15708
@@ -295,9 +296,9 @@ $$
 K_{ic} = 1570.8
 $$
 
----
 
-#### B. Voltage Loop
+
+#### Voltage Loop
 
 $$
 \sin(50^\circ) = 0.766
@@ -319,11 +320,10 @@ $$
 K_{iv} = 595
 $$
 
----
 
-### IX. Final Gains
 
-#### Current Loop
+#### Final Gains
+
 
 $$
 K_{pc} \approx 55
@@ -333,9 +333,6 @@ $$
 K_{ic} \approx 1571
 $$
 
----
-
-#### Voltage Loop
 
 $$
 K_{pv} \approx 0.286
@@ -345,8 +342,9 @@ $$
 K_{iv} \approx 595
 $$
 
+---
 
-### X. Summary of Design Equations
+### Summary of Design Equations
 
 | Loop | Quantity | Expression |
 |---|---|---|
@@ -365,9 +363,9 @@ $$
 | Voltage loop | Proportional gain | $K_{pv}=C_f\omega_{gc}$ |
 | Voltage loop | Integral gain | $K_{iv}=K_{pv}\omega_{cv}$ |
 
----
 
-### XI. Numerical Example Summary
+
+#### Numerical Example Summary
 
 For $f_{sw}=10\,\text{kHz}$, $L_f=3.5\,\text{mH}$, $R_f=0.1\,\Omega$, $C_f=50\,\mu\text{F}$, and $pm=50^\circ$:
 
