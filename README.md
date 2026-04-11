@@ -18,9 +18,7 @@ Control design focuses on:
 
 1. Balanced three-phase system  
 2. dq frame aligned with grid voltage  
-3. Inner loop bandwidth ≫ outer loop  
-4. Switching delays neglected (for derivation)  
-5. LCL resonance not explicitly used in PI tuning  
+3. Inner loop bandwidth ≫ outer loop   
 
 ---
 
