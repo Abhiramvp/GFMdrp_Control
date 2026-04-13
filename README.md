@@ -8,7 +8,7 @@ For users working with the Simulink model, the model parameters are defined in:
 
 #### Simulink Parameter Initialization
 
-The Simulink model parameters are initialized in Model Properties > Callbacks > InitFcn.
+The Simulink model parameters are initialized in Model Explorer > Callbacks > InitFcn.
 
 ---
 
