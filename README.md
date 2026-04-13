@@ -431,3 +431,10 @@ For $f_{sw}=10\,\text{kHz}$, $L_f=3.5\,\text{mH}$, $R_f=0.1\,\Omega$, $C_f=50\,\
 | $K_{iv}$ | $595$ |
 
 ---
+
+References:
+
+[1] N. Pogaku, M. Prodanovic and T. C. Green, "Modeling, Analysis and Testing of Autonomous Operation of an Inverter-Based Microgrid," in IEEE Transactions on Power Electronics, vol. 22, no. 2, pp. 613-625, March 2007, doi: 10.1109/TPEL.2006.890003.
+keywords: {Power system modeling;Inverters;Stability analysis;Power system stability;Control systems;Damping;Frequency;Eigenvalues and eigenfunctions;Circuit testing;Circuit stability;Inverter;inverter model;microgrid;power control;small-signal stability},
+
+
