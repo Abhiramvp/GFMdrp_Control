@@ -5,6 +5,7 @@
 This repository presents the control design of a three-phase voltage source converter (VSC) connected to the grid through an LCL filter in the synchronous dq reference frame. It includes the system equations, current-loop and voltage-loop controller design, power relationships, and a numerical example for tuning PI gains.
 
 ![GFM SPS](./GFMsps9s.gif)
+[![View GFMs_Droop_Control on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/183627-gfms_droop_control)
 
 #### Simulink Parameter Initialization
 
