@@ -4,7 +4,7 @@
 
 This repository presents the control design of a three-phase voltage source converter (VSC) connected to the grid through an LCL filter in the synchronous dq reference frame. It includes the system equations, current-loop and voltage-loop controller design, power relationships, and a numerical example for tuning PI gains.
 
-For users working with the Simulink model, the model parameters are defined in:
+![GFM SPS](./GFMsps9s.gif)
 
 #### Simulink Parameter Initialization
 
